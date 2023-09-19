@@ -1,0 +1,56 @@
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login {
+    display: block;
+
+    button {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+} 
+
+.hamburger-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Media Query for Small Screens (less than 768px) */
+@media (max-width: 768px) {
+    .search input {
+        width: 100%;
+    }
+
+    .hamburger-toggle {
+        display: block;
+    }
+
+    .login {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        display: none;
+    }
+}

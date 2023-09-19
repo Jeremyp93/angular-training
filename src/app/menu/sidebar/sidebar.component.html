@@ -1,0 +1,10 @@
+<aside class="sidebar">
+  <!-- Sidebar content with menu items -->
+  <div class="sidebar-content">
+    <ul>
+      <li *ngFor="let item of menuItems">
+        <a [routerLink]="['/' + item.link]">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,40 @@
+.sidebar {
+    z-index: 1;
+    width: 150px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+
+    .sidebar-content {
+        padding-top: 50px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+/* Media Query for Small Screens (less than 768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -150px;
+    }
+}

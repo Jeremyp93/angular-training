@@ -1,0 +1,26 @@
+<!-- <nav class="navbar">
+  <div class="navbar-logo" (click)="toggleSidebar()">
+    <img
+      src="https://www.aucklandcatholic.org.nz/wp-content/uploads/2022/03/youtube-logo-png-2092.png"
+      alt="Logo"
+    />
+  </div>
+  <div class="navbar-search">
+    <input type="text" placeholder="Search" />
+  </div>
+  <div class="navbar-login">
+    <button>Login</button>
+  </div>
+</nav> -->
+
+<nav class="navbar">
+  <div class="logo pointer" [routerLink]="['/']">LOGO</div>
+  <div class="search">
+    <app-search></app-search>
+  </div>
+  <div class="login">
+    <button>Login</button>
+  </div>
+  <div class="hamburger-toggle" (click)="onToggleHamburger()">☰</div>
+</nav>
+<app-hamburger-menu *ngIf="isOpen"></app-hamburger-menu>

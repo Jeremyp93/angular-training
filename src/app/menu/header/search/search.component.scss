@@ -1,0 +1,33 @@
+.search {
+    position: relative;
+}
+
+.search-input {
+    padding: 8px;
+    width: 300px;
+    border: none;
+    border-radius: 4px;
+
+    &:focus {
+        outline: none;
+    }
+
+    @media (max-width: 576px) {
+        width: 250px;
+    }
+}
+
+.search-img {
+    position: absolute;
+    right: 0;
+    top: .10rem;
+
+    img {
+        width: 40px;
+    }
+
+    @media (max-width: 768px) {
+        right: 0;
+        top: .15rem;
+    }
+}

@@ -1,0 +1,10 @@
+<div class="dropdown-menu">
+  <ul>
+    <ng-container *ngFor="let item of menuItems">
+      <hr *ngIf="item.properties?.withSeperator" />
+      <li [ngClass]="item.properties?.highlight ? 'highlight' : ''">
+        <a [href]="item.link">{{ item.name }}</a>
+      </li>
+    </ng-container>
+  </ul>
+</div>
