@@ -7,6 +7,7 @@ import { SearchComponent } from './header/search/search.component'
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HamburgerMenuComponent } from './header/hamburger-menu/hamburger-menu.component'
 import { MenuService } from './menu.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,8 @@ import { MenuService } from './menu.service';
   declarations: [HeaderComponent, SidebarComponent, SearchComponent, HamburgerMenuComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [HeaderComponent, SidebarComponent, SearchComponent],
   providers: [MenuService]

@@ -1,13 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Signal, signal } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment as config } from "src/environments/environment";
-import { Observable, Subject, map } from "rxjs";
+import { BehaviorSubject, Observable, Subject, map, tap } from "rxjs";
 import { Weather } from "./weather.model";
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
-    public city: Subject<string> = new Subject<string>();
+    public city: BehaviorSubject<string> = new BehaviorSubject<string>('Montreal');
+    previousCities = signal<string[]>([]);
 
     constructor(private httpClient: HttpClient) { }
 
@@ -31,6 +32,14 @@ export class WeatherService {
                 weather.description = response.currentConditions.conditions;
                 weather.icon = response.currentConditions.icon;
                 return weather;
+            }), tap((weather: Weather) => {
+                if (this.previousCities().indexOf(weather.location) !== -1) {
+                    return
+                }
+                if (this.previousCities().length === 3) {
+                    this.previousCities.mutate(arr => arr.splice(0, 1));
+                }
+                this.previousCities.mutate(arr => arr.push(weather.location));
             }));
     }
 }

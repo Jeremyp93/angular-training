@@ -1,0 +1,25 @@
+<div *ngIf="!weather">Loading...</div>
+<div *ngIf="weather" class="card-container">
+  <div class="card">
+    <div class="title">
+      <h1 class="mb-0">{{ weather.location }}</h1>
+    </div>
+    <div class="content">
+      <img
+        [src]="'../../assets/weather-icons/' + weather.icon + '.png'"
+        [alt]="weather.icon"
+        [title]="weather.description"
+      />
+      <h2 class="mt-0">{{ weather.temperature }} °C</h2>
+      <div class="grid">
+        <div class="header-item">Feels like:</div>
+        <div class="value-item">{{ weather.feelsLike }} °C</div>
+        <div class="header-item">Precipitation probability:</div>
+        <div class="value-item">{{ weather.precipitationProbability }} %</div>
+        <div class="header-item">Wind speed:</div>
+        <div class="value-item">{{ weather.windSpeed }} km/h</div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </div>
+</div>

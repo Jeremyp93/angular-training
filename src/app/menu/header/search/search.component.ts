@@ -10,6 +10,7 @@ import { WeatherService } from 'src/app/weather/weather.service';
 })
 export class SearchComponent {
   @Input() border: { width: string, style: string, color: string } | undefined;
+  searchValue: string = '';
   @ViewChild('searchInput', { static: false }) inputEl?: ElementRef<HTMLInputElement>;
 
   constructor(private router: Router, private weatherService: WeatherService) { }
@@ -22,11 +23,21 @@ export class SearchComponent {
   @HostListener('keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key !== 'Enter') return;
+    this.submit();
+  }
+
+  onSubmit = () => {
+    this.submit();
+  }
+
+  private submit = () => {
     const value = this.inputEl?.nativeElement.value;
     if (!value) return;
     const currentRoute = this.router.url;
     if (currentRoute === '/weather') {
       this.weatherService.city.next(value);
     }
+    this.searchValue = '';
+    this.inputEl?.nativeElement.focus();
   }
 }
